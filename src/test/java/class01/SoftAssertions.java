@@ -21,7 +21,7 @@ public class SoftAssertions {
 
     }
 
-    @Test
+    @Test(groups = "regression")
     public void VerifyCredentials() {
 
         SoftAssert soft = new SoftAssert();
@@ -45,6 +45,11 @@ public class SoftAssertions {
 
         //check all assertions
         //soft.assertAll();
+    }
+
+    @Test(groups = "smoke")
+    public void loginTest2(){
+        System.out.println("I am test for login under smoke");
     }
 
     @AfterMethod

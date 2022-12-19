@@ -11,7 +11,7 @@ Benefits of TestNG:
 3. Parallel testing  //a couple of time
 4. Batch execution
 5. Assertions —> Hard Assertions, Soft Assertions
-6. Data Parameterisation
+6. Data Parameterization
 
 It cam be integrated with cucumber, maven and selenium
 

@@ -1,0 +1,47 @@
+*************TestNG Class02*************
+
+Установить плагин XML-->
+--> кликнуть правой кнопкой по проекту
+--> выбрать create XML PROJECT
+--> кликнуть OK
+--> перезапустить проект (reload)
+--> зайти в появившийся файл testing.xml
+--> code -> reformat code
+
+
+TestNG XML:
+gives u control over the execution of your whole project!!!
+дает вам контроль над выполнением всего вашего проекта!!!
+
+<suite>
+     <test>
+            <classes>
+                <class>
+                    <method>
+                    </method>
+                <class>
+            </classes>
+         <packages>
+
+        </packages>
+    </test>
+</suite>
+
+@BeforeClass:
+this is annotation is used to execute the method only once before the execution of the class.
+
+@AfterClass:
+this is annotation is used to execute the method only once after the execution of the class.
+
+@BeforeTest:
+this is annotation is used to execute the method only once before the execution of the test.
+
+@AfterTest:
+this is annotation is used to execute the method only once after the execution of the test.
+
+whenever we run by groups
+the @beforeMethod and @AfterMethods do not run
+because they are not under the tag of groups
+
+When we run by method name
+@before method and @after method
