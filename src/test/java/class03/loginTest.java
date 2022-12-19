@@ -1,4 +1,4 @@
-package class01;
+package class03;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -10,9 +10,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class SoftAssertions {
+public class loginTest {
     WebDriver driver;  //declaration
-
     @BeforeMethod(alwaysRun = true)
     public void OpenBrowser() {
         WebDriverManager.chromedriver().setup(); //установили потому что используем прямо сейчас, а не фактический вэб-драййвер
@@ -20,13 +19,12 @@ public class SoftAssertions {
         driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
 
     }
-
     @Test(groups = "regression")
     public void VerifyCredentials() {
 
         SoftAssert soft = new SoftAssert();
 
-        String expectedText = "Invalid credentials 101";
+        String expectedText = "Invalid credentials";
         WebElement UserName = driver.findElement(By.id("txtUsername"));
         boolean displayed = UserName.isDisplayed();
         UserName.sendKeys("123456");
@@ -36,20 +34,15 @@ public class SoftAssertions {
         //assertion to make sure that message is correct
         soft.assertEquals(text, expectedText);
 
-       // WebElement userName = driver.findElement(By.id("txtUsername")); //при обновлении вэб страницы введенные
-                                                                         //данные удаляются поэтому дублируем ввод
+        // WebElement userName = driver.findElement(By.id("txtUsername")); //при обновлении вэб страницы введенные
+        //данные удаляются поэтому дублируем ввод
         //validate the display is true or not
         System.out.println("helloWorld");
-       // displayed=false;
+        // displayed=false;
         soft.assertTrue(displayed);
 
         //check all assertions
-        //soft.assertAll();
-    }
-
-    @Test(groups = "smoke")
-    public void loginTest2(){
-        System.out.println("I am test for login under smoke");
+        soft.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)
@@ -57,5 +50,4 @@ public class SoftAssertions {
         driver.quit();
 
     }
-
 }

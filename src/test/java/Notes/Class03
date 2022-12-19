@@ -1,0 +1,60 @@
+****************TestNG Class03**************
+TestNG XML
+helps us control the execution of the test cases.
+
+
+1.  <suite>
+        <test>
+            <classes>
+                 <class name="class name"/>
+                 <class name="class name">
+                                <methods>
+                                        <include name="method name"/>
+                                </methods>
+                 </class>
+            </classes>
+                 <packages>
+                     <package name="package name/">
+                 </packages>
+        </test>
+    </suite>
+
+When we run a specific method from a class, if it has any before and after method
+they will also be executed even if we don't select them to run!!!
+
+***********Executing our test cases on group level*************
+1. when we execute in our XML using groups,
+by default the @beforeMethod and @afterMethod WILL NOT execute!!!
+ONLY the methods tagged that particular group will be executed!!!
+
+In order to deal with this problem, because if we have any @BeforeMethod
+where we are doing some initializations we the following method
+i.e
+put (alwaysRun = "true") in front of your @beforeMethod and @afterMethod
+
+Whenever you are running by groups and u get an error of NULL pointer Exception
+the first thing to check is.....
+"@beforeMethod is set to alwaysRun=true"
+--------------------------------------------------------
+
+ListenersClass:
+
+Listeners Class listen to events like test failed/ pass/ skipped etc
+once the testcase has executed
+and it either /fails /pass /skips
+depending upon the status
+listeners class takes you to the execution of the code that you have written for
+the scenarios if you test case fails/pass or /skips
+
+Implementation of listeners class:
+
+Listeners class implements ITestListeners
+witch is an interface from TestNG
+and we override the functions according to our need
+
+after that you need to link the listeners class to the class on which you want it to listen
+that can be done using TestNG.XML
+
+u define ur <listeners> tag just under <suite> and than write down the classes u want it to listen to.
+
+
